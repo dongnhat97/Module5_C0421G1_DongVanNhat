@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a91f676e-5d2d-447c-b1e6-85eec978e2b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exercise/Landing_Page/LandingPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2.Typescript/typescript-variable/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2.Typescript/typescript-variable/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2.Typescript/typescript-variable/tsconfig.json" afterDir="false" />
-    </list>
+    <list default="true" id="a91f676e-5d2d-447c-b1e6-85eec978e2b1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../3. Angular_Overview/practice/practice1" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -66,6 +61,7 @@
       <updated>1632793714999</updated>
       <workItem from="1632793716928" duration="115000" />
       <workItem from="1632793901288" duration="4504000" />
+      <workItem from="1632926168131" duration="16000" />
     </task>
     <servers />
   </component>
@@ -82,11 +78,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1632800669941">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1632926182560">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1632800669941" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1632926182560" />
   </component>
 </project>
