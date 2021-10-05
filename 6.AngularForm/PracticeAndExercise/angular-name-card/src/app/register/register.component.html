@@ -1,0 +1,57 @@
+
+<div class="container-fluid mt-3">
+  <h4 class="mb-2">Complex Form</h4>
+  <form [formGroup]="contactForm"(ngSubmit)="onSubmit()">
+      <div class="form-group col-sm-6">
+        <label for="myEmail">Email</label>
+        <input type="email" class="form-control"
+               id="myEmail" name="email" formControlName="email">
+        <div *ngIf="contactForm.controls.email?.invalid && contactForm.controls.email?.dirty">
+          Hãy nhập đúng định dạng email
+        </div>
+      </div><br>
+    <div formGroupName="pwGroup">
+      <div class="form-group col-sm-6">
+        <label for="myPassword">Password</label>
+        <input type="text" class="form-control"
+               id="myPassword" name="password" formControlName="password">
+
+        <label for="myPassword2">Password</label>
+        <input type="text" class="form-control"
+               id="myPassword2" name="confirmPassword" formControlName="confirmPassword">
+      </div>
+    </div>
+      <div *ngIf="getPassword().hasError('comparePassword') && (getPassword().dirty)">
+        Mật khẩu không khớp định dạng
+      </div>
+   <br>
+    <div class="form-group">
+      <label for="inputAddress">Age</label>
+      <input type="text" class="form-control"
+             id="inputAddress" name="age" formControlName="age">
+    </div><br>
+    <div class="form-group">
+      <label for="inputAddress2">Phone</label>
+      <input type="text" class="form-control"
+             id="inputAddress2" name="phone" formControlName="phone">
+    </div><br>
+    <div class="form-row">
+      <div class="form-group col-sm-6">
+        <label>Gender</label><br>
+        <input type="radio" value="0" name="gender" formControlName="gender"> Female
+        <input type="radio" value="1" name="gender" formControlName="gender"> Male
+        <input type="radio" value="2" name="gender" formControlName="gender"> LGBT
+      </div>
+      <br>
+      <div class="form-group col-sm-4">
+        <label for="myState">Country</label>
+        <select id="myState" class="form-control" name="country" formControlName="country">
+          <option [ngValue]="c" *ngFor="let c of countryList">{{c}}</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+</div>
+<p>Form value: </p>
+<pre>{{contactForm.value | json}}</pre>

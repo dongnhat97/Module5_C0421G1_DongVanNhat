@@ -1,0 +1,25 @@
+<div class="container-fluid mt-3">
+  <h4 class="mb-2">Complex Form</h4>
+  <form [formGroup]="loginForm"(ngSubmit)="onLogin()">
+    <div class="form-group col-sm-6">
+      <label for="myEmail">Email</label>
+      <input type="email" class="form-control"
+             id="myEmail" name="email" formControlName="email">
+      <div *ngIf="loginForm.controls.email?.invalid && loginForm.controls.email?.dirty">
+        Hãy nhập đúng định dạng email
+      </div>
+    </div><br>
+
+      <div class="form-group col-sm-6">
+        <label for="myPassword">Password</label>
+        <input type="text" class="form-control"
+               id="myPassword" name="password" formControlName="password">
+      </div>
+     <div *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.dirty">
+       Mật khẩu có ít nhất 6 kí tự
+     </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+</div>
+<p>Form value: </p>
+<pre>{{loginForm.value | json}}</pre>

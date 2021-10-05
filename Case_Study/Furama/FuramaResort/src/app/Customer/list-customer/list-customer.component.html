@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky" >
+  <div class="container-fluid">
+    <img src="/FURAMA.png" style="width: 5%"></a>
+    <h4>Đồng Văn Nhật</h4>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark " style="position: sticky;top: 0px">
+  <div class="container-fluid">
+
+
+    <li class="nav-item">
+      <a class="navbar-brand" href="/" style="padding-left: 500px">Home</a>
+    </li>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="navbar-brand" href="/customer/list">Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" href="/service/list">Service</a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" href="/employee/list">Employee</a>
+        </li>
+        <li class="nav-item">
+          <a class="navbar-brand" href="/contract/list">Contract</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" action="/customer/search" method="get">
+        <input class="form-control me-2" type="text" name="name" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="row" >
+  <div class="col-2" style="background-color: gray; height: 600px">
+    <div class="row">
+      <h1>Item One</h1>
+    </div>
+    <div class="row">
+      <h1>Item Two</h1>
+    </div>
+    <div class="row"><h1>Item Three</h1></div>
+  </div>
+  <div class="col-10" style="background-image: url('/furama-ariyana-condotel-da-nang.jpg'); background-repeat: no-repeat;background-size: cover">
+    <div class="row">
+      <div class="col-12">
+        <th:block th:if="${message}">
+          <p th:text="${message}" style="color: red;font-size: 30px;font-weight: bolder"></p>
+        </th:block>
+        <button class="btn-info btn m-3"><a th:href="@{/customer/showCreate}">Create</a></button>
+
+        <form>
+          <table class="table table-success table-striped" style="width: 100%;margin-top: 80px;display: inline-block;overflow-x: scroll;right: 12px">
+            <thead>
+            <tr style="text-align: center">
+              <th>STT</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Code Customer</th>
+              <th>Birthday</th>
+              <th>Gender</th>
+              <th>Card</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Customer Type</th>
+              <th>Update</th>
+              <th>Delete</th>
+              <th>View</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let iem of customers" style="text-align: center">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><button class="btn-warning btn" > <a th:href="@{/customer/showUpdate/__${item.customerId}__}">Update</a></button></td>
+              <td>
+                <button type="button" class="btn btn-danger" style="font-weight: bold" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" th:attr="onclick=|onDelete('${item.customerId}', '${item.customerName}')|">
+                  Delete
+                </button>
+              </td>
+              <td>
+                <button class="btn-outline-primary btn"><a th:href="@{/customer/view/__${item.customerId}__}">View</a></button>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </form>
+        <div>
+          <a th:if="${customerList.hasPrevious()}" th:href="@{'/customer/list'(page=${customerList.number -1})}">Back</a>
+          <span ><button th:text="${customerList.number +1}"></button></span><button>/</button><span><button th:text="${customerList.totalPages}"></button></span>
+          <a th:if="${customerList.hasNext()}" th:href="@{'/customer/list'(page=${customerList.number +1})}">Next</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12" style="height: 100px;background-color: black;font-size: 50px;text-align: center">
+    <span>Facebook |</span>
+    <span style="margin-left: 20px">Zalo |</span>
+    <span style="margin-left: 20px">Google |</span>
+    <h5>Hà Nội ngày 02-09-2021</h5>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa <input name="id" value="" id="onName">
+      </div>
+      <form action="/customer/delete" method="post">
+        <input type="hidden" name="action" value="delete">
+        <input type="hidden" name="id" value="" id="idOnDelete">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="submit" class="btn btn-primary">Yup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  function onDelete(id,name) {
+    document.getElementById("idOnDelete").value=id
+    document.getElementById("onName").value=name
+  }
+</script>
+</body>
+</html>
