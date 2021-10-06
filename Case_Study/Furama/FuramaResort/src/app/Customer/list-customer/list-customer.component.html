@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky" >
   <div class="container-fluid">
-    <img src="/FURAMA.png" style="width: 5%"></a>
+    <img src="/FURAMA.png" style="width: 5%">
     <h4>Đồng Văn Nhật</h4>
   </div>
 </nav>
@@ -49,10 +49,10 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" action="/customer/search" method="get">
-        <input class="form-control me-2" type="text" name="name" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<!--      <form class="d-flex" action="/customer/search" method="get">-->
+<!--        <input class="form-control me-2" type="text" name="name" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
     </div>
   </div>
 </nav>
@@ -66,15 +66,10 @@
     </div>
     <div class="row"><h1>Item Three</h1></div>
   </div>
-  <div class="col-10" style="background-image: url('/furama-ariyana-condotel-da-nang.jpg'); background-repeat: no-repeat;background-size: cover">
+  <div class="col-10" style="background-repeat: no-repeat;background-size: cover">
     <div class="row">
       <div class="col-12">
-        <th:block th:if="${message}">
-          <p th:text="${message}" style="color: red;font-size: 30px;font-weight: bolder"></p>
-        </th:block>
-        <button class="btn-info btn m-3"><a th:href="@{/customer/showCreate}">Create</a></button>
 
-        <form>
           <table class="table table-success table-striped" style="width: 100%;margin-top: 80px;display: inline-block;overflow-x: scroll;right: 12px">
             <thead>
             <tr style="text-align: center">
@@ -83,7 +78,6 @@
               <th>Name</th>
               <th>Code Customer</th>
               <th>Birthday</th>
-              <th>Gender</th>
               <th>Card</th>
               <th>Phone</th>
               <th>Email</th>
@@ -95,40 +89,23 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let iem of customers" style="text-align: center">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><button class="btn-warning btn" > <a th:href="@{/customer/showUpdate/__${item.customerId}__}">Update</a></button></td>
-              <td>
-                <button type="button" class="btn btn-danger" style="font-weight: bold" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" th:attr="onclick=|onDelete('${item.customerId}', '${item.customerName}')|">
-                  Delete
-                </button>
-              </td>
-              <td>
-                <button class="btn-outline-primary btn"><a th:href="@{/customer/view/__${item.customerId}__}">View</a></button>
-              </td>
+            <tr *ngFor="let item of customers;let i = index" style="text-align: center">
+              <td>{{i+1}}</td>
+              <td>{{item.customerId}}</td>
+              <td>{{item.customerName}}</td>
+              <td>{{item.customerCode}}</td>
+              <td>{{item.customerBirthday}}</td>
+              <td>{{item.customerCar}}</td>
+              <td>{{item.customerPhone}}</td>
+              <td>{{item.customerEmail}}</td>
+              <td>{{item.customerAddress}}</td>
+              <td>{{item.customerType}}</td>
             </tr>
 
             </tbody>
           </table>
-        </form>
-        <div>
-          <a th:if="${customerList.hasPrevious()}" th:href="@{'/customer/list'(page=${customerList.number -1})}">Back</a>
-          <span ><button th:text="${customerList.number +1}"></button></span><button>/</button><span><button th:text="${customerList.totalPages}"></button></span>
-          <a th:if="${customerList.hasNext()}" th:href="@{'/customer/list'(page=${customerList.number +1})}">Next</a>
-        </div>
+            <app-create-customer (createChild)="createFather($event)"></app-create-customer>
       </div>
-
     </div>
   </div>
 </div>
@@ -150,14 +127,6 @@
       <div class="modal-body">
         Bạn có muốn xóa <input name="id" value="" id="onName">
       </div>
-      <form action="/customer/delete" method="post">
-        <input type="hidden" name="action" value="delete">
-        <input type="hidden" name="id" value="" id="idOnDelete">
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-          <button type="submit" class="btn btn-primary">Yup</button>
-        </div>
-      </form>
     </div>
   </div>
 </div>

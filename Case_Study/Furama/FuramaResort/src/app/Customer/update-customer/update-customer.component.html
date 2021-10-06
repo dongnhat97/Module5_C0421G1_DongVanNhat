@@ -1,133 +1,133 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <style>
-    .tex {
-      font-size: 30px;
-      font-weight: bolder;
-      color: whitesmoke;
-    }
-  </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky">
-  <div class="container-fluid">
-    <img src="/FURAMA.png" style="width: 5%"></a>
-    <h4>Đồng Văn Nhật</h4>
-  </div>
-</nav>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Title</title>-->
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">-->
+<!--  <style>-->
+<!--    .tex {-->
+<!--      font-size: 30px;-->
+<!--      font-weight: bolder;-->
+<!--      color: whitesmoke;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky">-->
+<!--  <div class="container-fluid">-->
+<!--    <img src="/FURAMA.png" style="width: 5%">-->
+<!--    <h4>Đồng Văn Nhật</h4>-->
+<!--  </div>-->
+<!--</nav>-->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark "
-     style="position: sticky;top: 0px">
-  <div class="container-fluid">
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark "-->
+<!--     style="position: sticky;top: 0px">-->
+<!--  <div class="container-fluid">-->
 
 
-    <li class="nav-item">
-      <a class="navbar-brand" href="#" style="padding-left: 500px">Home</a>
-    </li>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="navbar-brand" href="/customer/list">Customer</a>
-        </li>
-        <li class="nav-item">
-          <a class="navbar-brand" href="/service/list">Service</a>
-        </li>
-        <li class="nav-item">
-          <a class="navbar-brand" href="/employee/list">Employee</a>
-        </li>
-        <li class="nav-item">
-          <a class="navbar-brand" href="/contract/list">Contract</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+<!--    <li class="nav-item">-->
+<!--      <a class="navbar-brand" href="#" style="padding-left: 500px">Home</a>-->
+<!--    </li>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"-->
+<!--            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="navbar-brand" href="/customer/list">Customer</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="navbar-brand" href="/service/list">Service</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="navbar-brand" href="/employee/list">Employee</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="navbar-brand" href="/contract/list">Contract</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="navbar-brand" href="#">Navbar</a>-->
+<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--            <li>-->
+<!--              <hr class="dropdown-divider">-->
+<!--            </li>-->
+<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
 
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-2" style="background-color: gray; height: 800px">
-      <div class="row">
-        <h1>Item One</h1>
-      </div>
-      <div class="row">
-        <h1>Item Two</h1>
-      </div>
-      <div class="row"><h1>Item Three</h1></div>
-    </div>
-    <div class="col-10"
-         style="background-image: url('/furama-ariyana-condotel-da-nang.jpg'); background-repeat: no-repeat;background-size: cover">
-      <div class="row">
-        <div class="col-12">
-          <form action="/customer/update" method="post" th:object="${customer}"  style="text-align: center">
+<!--      </ul>-->
+<!--      <form class="d-flex">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <div class="col-2" style="background-color: gray; height: 800px">-->
+<!--      <div class="row">-->
+<!--        <h1>Item One</h1>-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <h1>Item Two</h1>-->
+<!--      </div>-->
+<!--      <div class="row"><h1>Item Three</h1></div>-->
+<!--    </div>-->
+<!--    <div class="col-10"-->
+<!--         style="background-image: url('/furama-ariyana-condotel-da-nang.jpg'); background-repeat: no-repeat;background-size: cover">-->
+<!--      <div class="row">-->
+<!--        <div class="col-12">-->
+<!--          <form action="/customer/update" method="post" th:object="${customer}"  style="text-align: center">-->
 
-            <input type="hidden" th:field="*{customerId}">
-            <p class="tex">Name</p>
-            <input type="text" th:field="*{customerName}">
+<!--            <input type="hidden" th:field="*{customerId}">-->
+<!--            <p class="tex">Name</p>-->
+<!--            <input type="text" th:field="*{customerName}">-->
 
-            <p class="tex">Birthday</p>
-            <input type="text" th:field="*{customerBirthday}">
+<!--            <p class="tex">Birthday</p>-->
+<!--            <input type="text" th:field="*{customerBirthday}">-->
 
-            <p class="tex">Gender</p>
-            <select th:field="*{customerGender}" style="width: 182px">
-              <option th:value="1">Male</option>
-              <option th:value="2">Female</option>
-              <option th:value="0">Other</option>
-            </select>
-            <p class="tex">Card</p>
-            <input type="text" th:field="*{customerCard}">
+<!--            <p class="tex">Gender</p>-->
+<!--            <select th:field="*{customerGender}" style="width: 182px">-->
+<!--              <option th:value="1">Male</option>-->
+<!--              <option th:value="2">Female</option>-->
+<!--              <option th:value="0">Other</option>-->
+<!--            </select>-->
+<!--            <p class="tex">Card</p>-->
+<!--            <input type="text" th:field="*{customerCard}">-->
 
-            <p class="tex">Phone</p>
-            <input type="text" th:field="*{customerPhone}">
+<!--            <p class="tex">Phone</p>-->
+<!--            <input type="text" th:field="*{customerPhone}">-->
 
-            <p class="tex">Email</p>
-            <input type="text" th:field="*{customerEmail}">
+<!--            <p class="tex">Email</p>-->
+<!--            <input type="text" th:field="*{customerEmail}">-->
 
-            <p class="tex">Address</p>
-            <input type="text" th:field="*{customerAddress}">
-            <p class="tex">Customer Type</p>
-            <select th:field="*{customerType.customerTypeId}" style="width: 182px">
-              <option th:each="item: ${customerType}" th:text="${item.customerTypeName}"
-                      th:value="${item.customerTypeId}">
+<!--            <p class="tex">Address</p>-->
+<!--            <input type="text" th:field="*{customerAddress}">-->
+<!--            <p class="tex">Customer Type</p>-->
+<!--            <select th:field="*{customerType.customerTypeId}" style="width: 182px">-->
+<!--              <option th:each="item: ${customerType}" th:text="${item.customerTypeName}"-->
+<!--                      th:value="${item.customerTypeId}">-->
 
-              </option>
-            </select>
-            <br><br>
+<!--              </option>-->
+<!--            </select>-->
+<!--            <br><br>-->
 
-            <input type="submit" value="Update">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12" style="height: 100px;background-color: black;font-size: 50px;text-align: center">
-      Footer
-    </div>
-  </div>
-</div>
-</body>
-</html>
+<!--            <input type="submit" value="Update">-->
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="row">-->
+<!--    <div class="col-12" style="height: 100px;background-color: black;font-size: 50px;text-align: center">-->
+<!--      Footer-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

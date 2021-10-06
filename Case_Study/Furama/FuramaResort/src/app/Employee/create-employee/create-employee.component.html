@@ -1,166 +1,166 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <style>
-    .tex {
-      font-size: 30px;
-      font-weight: bolder;
-      color: whitesmoke;
-    }
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Title</title>-->
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">-->
+<!--  <style>-->
+<!--    .tex {-->
+<!--      font-size: 30px;-->
+<!--      font-weight: bolder;-->
+<!--      color: whitesmoke;-->
+<!--    }-->
 
-    .errors {
-      font-weight: bolder;
-      color: red;
-      font-size: 20px
-    }
-  </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky">
-  <div class="container-fluid">
-    <img src="/FURAMA.png" style="width: 5%"></a>
-    <h4>Đồng Văn Nhật</h4>
-  </div>
-</nav>
+<!--    .errors {-->
+<!--      font-weight: bolder;-->
+<!--      color: red;-->
+<!--      font-size: 20px-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky">-->
+<!--  <div class="container-fluid">-->
+<!--    <img src="/FURAMA.png" style="width: 5%">-->
+<!--    <h4>Đồng Văn Nhật</h4>-->
+<!--  </div>-->
+<!--</nav>-->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark "
-     style="position: sticky;top: 0px">
-  <div class="container-fluid">
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark "-->
+<!--     style="position: sticky;top: 0px">-->
+<!--  <div class="container-fluid">-->
 
 
-    <li class="nav-item">
-      <a class="navbar-brand" href="#" style="padding-left: 500px">Home</a>
-    </li>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="navbar-brand" href="/customer/list">Customer</a>
-        </li>
-        <li class="nav-item">
-          <a class="navbar-brand" href="/service/list">Service</a>
-        </li>
-        <li class="nav-item">
-          <a class="navbar-brand" href="/employee/list">Employee</a>
-        </li>
-        <li class="nav-item">
-          <a class="navbar-brand" href="/contract/list">Contract</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+<!--    <li class="nav-item">-->
+<!--      <a class="navbar-brand" href="#" style="padding-left: 500px">Home</a>-->
+<!--    </li>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"-->
+<!--            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="navbar-brand" href="/customer/list">Customer</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="navbar-brand" href="/service/list">Service</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="navbar-brand" href="/employee/list">Employee</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="navbar-brand" href="/contract/list">Contract</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="navbar-brand" href="#">Navbar</a>-->
+<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--            <li>-->
+<!--              <hr class="dropdown-divider">-->
+<!--            </li>-->
+<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
 
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-2" style="background-color: gray; height: 1200px">
-      <div class="row">
-        <img src="https://scontent.fdad8-1.fna.fbcdn.net/v/t1.6435-9/121994622_2028802943926791_5327311356844023179_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=0debeb&_nc_ohc=ffGGvmgXixMAX_RsWGV&tn=H6YyRzM0pFxwJLi4&_nc_ht=scontent.fdad8-1.fna&oh=f5d3e7cd42634a27f7698c4d79119220&oe=616D1E68">
-      </div>
-      <div class="row">
-        <img src="https://toquoc.mediacdn.vn/thumb_w/640/2018/12/25/cau-vang-ba-na-3-15457134861131150541874.jpg">
-      </div>
-      <div class="row">
-        <img src="https://trieuhaotourist.vn/Uploads/images/nttnhu/HQ%208-min_1.png">
-      </div>
-      <div class="row">
-        <img src="https://1hot.vn/wp-content/uploads/2020/10/phong-canh-dep-nhat-the-gioi-3.jpg">
-      </div>
-      <div class="row">
-        <img src="https://1hot.vn/wp-content/uploads/2020/10/phong-canh-dep-nhat-the-gioi-10.jpg">
-      </div>
-    </div>
+<!--      </ul>-->
+<!--      <form class="d-flex">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <div class="col-2" style="background-color: gray; height: 1200px">-->
+<!--      <div class="row">-->
+<!--        <img src="https://scontent.fdad8-1.fna.fbcdn.net/v/t1.6435-9/121994622_2028802943926791_5327311356844023179_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=0debeb&_nc_ohc=ffGGvmgXixMAX_RsWGV&tn=H6YyRzM0pFxwJLi4&_nc_ht=scontent.fdad8-1.fna&oh=f5d3e7cd42634a27f7698c4d79119220&oe=616D1E68">-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <img src="https://toquoc.mediacdn.vn/thumb_w/640/2018/12/25/cau-vang-ba-na-3-15457134861131150541874.jpg">-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <img src="https://trieuhaotourist.vn/Uploads/images/nttnhu/HQ%208-min_1.png">-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <img src="https://1hot.vn/wp-content/uploads/2020/10/phong-canh-dep-nhat-the-gioi-3.jpg">-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <img src="https://1hot.vn/wp-content/uploads/2020/10/phong-canh-dep-nhat-the-gioi-10.jpg">-->
+<!--      </div>-->
+<!--    </div>-->
 
-    <div class="col-10">
-      <div class="row">
-        <div class="col-12">
-          <form method="post" action="/employee/create" th:object="${employeeDto}">
-            <div class="mb-3 mx-5" style="margin: 100px">
-              <label class="form-label">Name</label>
-              <input type="text" class="form-control"th:field="*{employeeName}">
-              <div th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"
-                   style="color: red">Error
-              </div>
-              <label class="form-label">Birthday</label>
-              <div><input type="text" class="form-control" th:field="*{employeeBirthday}"></div>
-              <div th:if="${#fields.hasErrors('employeeBirthday')}" th:errors="*{employeeBirthday}"
-                   style="color: red">Error
-              </div>
+<!--    <div class="col-10">-->
+<!--      <div class="row">-->
+<!--        <div class="col-12">-->
+<!--          <form method="post" action="/employee/create" th:object="${employeeDto}">-->
+<!--            <div class="mb-3 mx-5" style="margin: 100px">-->
+<!--              <label class="form-label">Name</label>-->
+<!--              <input type="text" class="form-control"th:field="*{employeeName}">-->
+<!--              <div th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"-->
+<!--                   style="color: red">Error-->
+<!--              </div>-->
+<!--              <label class="form-label">Birthday</label>-->
+<!--              <div><input type="text" class="form-control" th:field="*{employeeBirthday}"></div>-->
+<!--              <div th:if="${#fields.hasErrors('employeeBirthday')}" th:errors="*{employeeBirthday}"-->
+<!--                   style="color: red">Error-->
+<!--              </div>-->
 
-              <label class="form-label">Car</label>
-              <div><input type="text" class="form-control" th:field="*{employeeCar}"></div>
-              <div th:if="${#fields.hasErrors('employeeCar')}" th:errors="*{employeeCar}"
-                   style="color: red">Error
-              </div>
+<!--              <label class="form-label">Car</label>-->
+<!--              <div><input type="text" class="form-control" th:field="*{employeeCar}"></div>-->
+<!--              <div th:if="${#fields.hasErrors('employeeCar')}" th:errors="*{employeeCar}"-->
+<!--                   style="color: red">Error-->
+<!--              </div>-->
 
-              <label class="form-label">Salary</label>
-              <div><input type="text" class="form-control" th:field="*{employeeSalary}"></div>
-              <div th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"
-                   style="color: red">Error
-              </div>
+<!--              <label class="form-label">Salary</label>-->
+<!--              <div><input type="text" class="form-control" th:field="*{employeeSalary}"></div>-->
+<!--              <div th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"-->
+<!--                   style="color: red">Error-->
+<!--              </div>-->
 
-              <label class="form-label">Phone</label>
-              <div><input type="text" class="form-control" th:field="*{employeePhone}"></div>
-              <div th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}"
-                   style="color: red">Error
-              </div>
+<!--              <label class="form-label">Phone</label>-->
+<!--              <div><input type="text" class="form-control" th:field="*{employeePhone}"></div>-->
+<!--              <div th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}"-->
+<!--                   style="color: red">Error-->
+<!--              </div>-->
 
-              <label class="form-label">Email</label>
-              <div><input type="text" class="form-control" th:field="*{employeeEmail}"></div>
-              <div th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"
-                   style="color: red">Error
-              </div>
+<!--              <label class="form-label">Email</label>-->
+<!--              <div><input type="text" class="form-control" th:field="*{employeeEmail}"></div>-->
+<!--              <div th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"-->
+<!--                   style="color: red">Error-->
+<!--              </div>-->
 
-              <label class="form-label">Address</label>
-              <div><input type="text" class="form-control" th:field="*{employeeAddress}"></div>
-              <div th:if="${#fields.hasErrors('employeeAddress')}" th:errors="*{employeeAddress}"
-                   style="color: red">Error
-              </div>
-              <label class="form-label">Position</label>
-              <select  class="form-select" th:field="*{position.positionId}">
-                <option th:each="item: ${position}" th:text="${item.positionName}" th:value="${item.positionId}"></option>
-              </select>
+<!--              <label class="form-label">Address</label>-->
+<!--              <div><input type="text" class="form-control" th:field="*{employeeAddress}"></div>-->
+<!--              <div th:if="${#fields.hasErrors('employeeAddress')}" th:errors="*{employeeAddress}"-->
+<!--                   style="color: red">Error-->
+<!--              </div>-->
+<!--              <label class="form-label">Position</label>-->
+<!--              <select  class="form-select" th:field="*{position.positionId}">-->
+<!--                <option th:each="item: ${position}" th:text="${item.positionName}" th:value="${item.positionId}"></option>-->
+<!--              </select>-->
 
-              <label class="form-label">Education</label>
-              <select  class="form-select" th:field="*{education.educationId}">
-                <option th:each="item: ${education}" th:text="${item.educationName}" th:value="${item.educationId}"></option>
-              </select>
+<!--              <label class="form-label">Education</label>-->
+<!--              <select  class="form-select" th:field="*{education.educationId}">-->
+<!--                <option th:each="item: ${education}" th:text="${item.educationName}" th:value="${item.educationId}"></option>-->
+<!--              </select>-->
 
-            </div>
+<!--            </div>-->
 
-            <button type="submit" class="btn btn-primary" style="margin-left: 500px">Primary</button>
-          </form>
+<!--            <button type="submit" class="btn btn-primary" style="margin-left: 500px">Primary</button>-->
+<!--          </form>-->
 
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="col-12"
-     style="height: 100px;background-color: black;font-size: 50px;text-align: center">
-  Footer
-</div>
-</body>
-</html>
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="col-12"-->
+<!--     style="height: 100px;background-color: black;font-size: 50px;text-align: center">-->
+<!--  Footer-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

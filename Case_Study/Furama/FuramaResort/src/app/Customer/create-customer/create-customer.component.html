@@ -21,7 +21,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky">
   <div class="container-fluid">
-    <img src="/FURAMA.png" style="width: 5%"></a>
+    <img src="/FURAMA.png" style="width: 5%">
     <h4>Đồng Văn Nhật</h4>
   </div>
 </nav>
@@ -65,10 +65,10 @@
         </li>
 
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<!--      <form class="d-flex">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
     </div>
   </div>
 </nav>
@@ -84,53 +84,91 @@
       <div class="row"><h1>Item Three</h1></div>
     </div>
     <div class="col-10"
-         style="background-image: url('/0f45d402_z.webp'); background-repeat: no-repeat;background-size: cover">
+         style=" background-repeat: no-repeat;background-size: cover">
       <div class="row">
         <div class="col-12">
-          <form action="/customer/create" method="post" th:object="${customerDto}" style="text-align: center">
-            <p class="tex">Name</p>
-            <input type="text" th:field="*{customerName}">
+          <div class="container-fluid mt-3">
+            <h4 class="mb-2">Create Customer</h4>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
-            <p class="tex">Code Customer</p>
-            <input type="text" th:field="*{codeCustomer}">
-            <p class="errors" th:if="${#fields.hasErrors('codeCustomer')}" th:errors="*{codeCustomer}"></p>
+              <div class="form-group col-sm-6">
+                <label >Id</label>
+                <input type="text" class="form-control" formControlName="customerId">
+                <div *ngIf="contactForm.controls.customerId?.invalid && contactForm.controls.customerId?.dirty">
+                  Id không được trống
+                </div>
+              </div><br>
 
-            <p class="tex">Birthday</p>
-            <input type="text" th:field="*{customerBirthday}">
-            <p class="errors" th:if="${#fields.hasErrors('customerBirthday')}" th:errors="*{customerBirthday}"></p>
+              <div class="form-group col-sm-6">
+                <label>Name</label>
+                <input type="text" class="form-control" formControlName="customerName">
+                <div *ngIf="contactForm.controls.customerName?.invalid && contactForm.controls.customerName?.dirty">
+                 Tên không được trống
+                </div>
+              </div><br>
 
-            <p class="tex">Gender</p>
-            <select th:field="*{customerGender}" style="width: 182px">
-              <option th:value="1">Male</option>
-              <option th:value="2">Female</option>
-              <option th:value="0">Other</option>
-            </select>
+              <div class="form-group col-sm-6">
+                <label>Code</label>
+                <input type="text" class="form-control" formControlName="customerCode">
+                <div *ngIf="contactForm.controls.customerCode?.invalid && contactForm.controls.customerCode?.dirty">
+                  Code không được trống
+                </div>
+              </div><br>
 
-            <p class="tex">Card</p>
-            <input type="text" th:field="*{customerCard}">
-            <p class="errors" th:if="${#fields.hasErrors('customerCard')}" th:errors="*{customerCard}"></p>
+              <div class="form-group col-sm-6">
+                <label>CustomerType</label>
+                <input type="text" class="form-control" formControlName="customerType">
+                <div *ngIf="contactForm.controls.customerType?.invalid && contactForm.controls.customerType?.dirty">
+                  loại khách hàng không được trống
+                </div>
+              </div><br>
 
-            <p class="tex">Phone</p>
-            <input type="text" th:field="*{customerPhone}">
-            <p class="errors" th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"></p>
+              <div class="form-group col-sm-6">
+                <label>Birthday</label>
+                <input type="text" class="form-control" formControlName="customerBirthday">
+                <div *ngIf="contactForm.controls.customerBirthday?.invalid && contactForm.controls.customerBirthday?.dirty">
+                  Nhập đúng định dạng ngày sinh
+                </div>
+              </div><br>
 
-            <p class="tex">Email</p>
-            <input type="text" th:field="*{customerEmail}">
-            <p class="errors" th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"></p>
+              <div class="form-group col-sm-6">
+                <label>Car</label>
+                <input type="text" class="form-control" formControlName="customerCar">
+                <div *ngIf="contactForm.controls.customerCar?.invalid && contactForm.controls.customerCar?.dirty">
+                  Nhập đúng định dạng CMND
+                </div>
+              </div><br>
+              <div class="form-group col-sm-6">
+                <label>Phone</label>
+                <input type="text" class="form-control" formControlName="customerPhone">
+                <div *ngIf="contactForm.controls.customerPhone?.invalid && contactForm.controls.customerPhone?.dirty">
+                  Nhập đúng định dạng số điện thoại
+                </div>
+              </div><br>
 
-            <p class="tex">Address</p>
-            <input type="text" th:field="*{customerAddress}">
+              <div class="form-group col-sm-6">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="customerEmail">
+                <div *ngIf="contactForm.controls.customerEmail?.invalid && contactForm.controls.customerEmail?.dirty">
+                  Nhập đúng định dạng Email
+                </div>
+              </div><br>
 
-            <p class="tex">Customer Type</p>
-            <select th:field="*{customerType.customerTypeId}" style="width: 182px">
-              <option th:each="item: ${customerType}" th:text="${item.customerTypeName}"
-                      th:value="${item.customerTypeId}">
-              </option>
-            </select>
-            <br><br>
+              <div class="form-group col-sm-6">
+                <label>Address</label>
+                <input type="email" class="form-control" formControlName="customerAddress">
 
-            <input type="submit" value="Create">
-          </form>
+                <div *ngIf="contactForm.controls.customerAddress?.invalid && contactForm.controls.customerAddress?.dirty">
+                  Hãy nhập đúng định dạng Address
+                </div>
+              </div><br>
+
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+          </div>
+          <p>Form value: </p>
+          <pre>{{contactForm.value | json}}</pre>
+
         </div>
       </div>
     </div>

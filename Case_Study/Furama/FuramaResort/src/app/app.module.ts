@@ -20,6 +20,7 @@ import { CreateCustomerComponent } from './Customer/create-customer/create-custo
 import { UpdateCustomerComponent } from './Customer/update-customer/update-customer.component';
 import { DeleteCustomerComponent } from './Customer/delete-customer/delete-customer.component';
 import { ViewCustomerComponent } from './Customer/view-customer/view-customer.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ViewCustomerComponent } from './Customer/view-customer/view-customer.co
     ViewCustomerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
