@@ -1,0 +1,123 @@
+{
+  "CustomerType": [
+    {
+      "id": 1,
+      "name": "vip"
+    },
+    {
+      "id": 2,
+      "name": "Pro"
+    },
+    {
+      "id": 3,
+      "name": "Kute"
+    }
+  ],
+  "customers": [
+    {
+      "customerName": "Js",
+      "customerCode": "KH-1233",
+      "customerType": {
+        "id": 1,
+        "name": "vip"
+      },
+      "customerBirthday": "12/12/2000",
+      "customerCar": "12312312312",
+      "customerPhone": "0922131312",
+      "customerEmail": "nhatdv22@gmail.com",
+      "customerAddress": "Ha Tinh",
+      "id": 2
+    },
+    {
+      "customerName": "Agular",
+      "customerCode": "KH-1233",
+      "customerType": {
+        "id": 1,
+        "name": "vip"
+      },
+      "customerBirthday": "12/12/2000",
+      "customerCar": "12312312312",
+      "customerPhone": "0922131312",
+      "customerEmail": "nhatdv22@gmail.com",
+      "customerAddress": "Ha Tinh",
+      "id": 10
+    }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "positionName": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "positionName": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "positionName": "Đại học"
+    },
+    {
+      "id": 4,
+      "positionName": "Sau đại học"
+    }
+  ],
+  "employees": [
+    {
+      "employeeName": "hihi",
+      "employeeSalary": 23,
+      "employeePosition": {
+        "id": 1,
+        "positionName": "Trung cấp"
+      },
+      "employeeBirthday": "2001-02-23",
+      "employeeCard": "12321232123",
+      "employeePhone": "0922123112",
+      "employeeEmail": "dep123@gmail.com",
+      "employeeAddress": "Quang Bình",
+      "id": 2
+    },
+    {
+      "employeeName": "Deppppp",
+      "employeeSalary": 23,
+      "employeePosition": {
+        "id": 1,
+        "positionName": "Trung cấp"
+      },
+      "employeeBirthday": "2001-02-23",
+      "employeeCard": "12321232123",
+      "employeePhone": "0922123112",
+      "employeeEmail": "dep123@gmail.com",
+      "employeeAddress": "Quang Bình",
+      "id": 1
+    }
+  ],
+
+   "services": [
+     {
+       "id": 2,
+       "serviceName": "pro",
+       "areaService": 15,
+       "numberFloors": 10,
+       "maxPeople": 5,
+       "rentCost": 20,
+       "rentType": {
+         "id": 1,
+         "rentTypeName": "villa"
+       },
+       "status":"ok"
+     },
+     {
+       "id": 1,
+       "serviceName": "vip",
+       "areaService": 15,
+       "numberFloors": 10,
+       "maxPeople": 5,
+       "rentCost": 20,
+       "rentType": {
+         "id": 1,
+         "rentTypeName": "House"
+       },
+       "status":"ok"
+     }
+   ]
+}

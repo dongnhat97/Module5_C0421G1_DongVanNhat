@@ -10,12 +10,12 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky" >
   <div class="container-fluid">
-    <img src="/FURAMA.png" style="width: 5%">
+<!--    <img src="/FURAMA.png" style="width: 5%">-->
     <h4>Đồng Văn Nhật</h4>
   </div>
 </nav>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark " style="position: sticky;top: 0px">
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark " style="position: sticky;top: 0px;z-index: 2">
   <div class="container-fluid">
 
 
@@ -34,7 +34,7 @@
           <a class="navbar-brand" href="/service/list">Service</a>
         </li>
         <li class="nav-item">
-          <a class="navbar-brand" href="/employee/list">Employee</a>
+          <a class="navbar-brand" [routerLink]="['/employee/list']" >Employee</a>
         </li>
         <li class="nav-item">
           <a class="navbar-brand" href="/contract/list">Contract</a>
@@ -49,15 +49,11 @@
           </ul>
         </li>
       </ul>
-<!--      <form class="d-flex" action="/customer/search" method="get">-->
-<!--        <input class="form-control me-2" type="text" name="name" placeholder="Search" aria-label="Search">-->
-<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
-<!--      </form>-->
     </div>
   </div>
 </nav>
 <div class="row" >
-  <div class="col-2" style="background-color: gray; height: 600px">
+  <div class="col-2" style="background-color: gray; height: 1000px">
     <div class="row">
       <h1>Item One</h1>
     </div>
@@ -68,14 +64,18 @@
   </div>
   <div class="col-10" style="background-repeat: no-repeat;background-size: cover">
     <div class="row">
-      <div class="col-12">
-
-          <table class="table table-success table-striped" style="width: 100%;margin-top: 80px;display: inline-block;overflow-x: scroll;right: 12px">
+      <div class="col-12 m-3" >
+        <button type="button" class="btn btn-primary" [routerLink]="['/customer/create']">Create</button>
+        <nav class="navbar">
+               <input class="form-control"type="text" name="customerName" [(ngModel)]="customerName" (ngModelChange)="Search()" placeholder="Search Customer">
+        </nav>
+        <app-detail-customer [customerChild]="customerParent"></app-detail-customer>
+          <table class="table table-success table-striped " style="width: 100%;margin-top: 80px;display: inline-block;overflow-x: scroll;right: 12px">
             <thead>
             <tr style="text-align: center">
               <th>STT</th>
-              <th>ID</th>
-              <th>Name</th>
+              <th (click)="sort('id')">ID </th>
+              <th (click)="sort('customerName')">Name </th>
               <th>Code Customer</th>
               <th>Birthday</th>
               <th>Card</th>
@@ -89,9 +89,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let item of customers;let i = index" style="text-align: center">
+            <tr *ngFor="let item of customers | orderBy: key: reverse | paginate:{itemsPerPage:2,currentPage:p};let i = index" style="text-align: center">
               <td>{{i+1}}</td>
-              <td>{{item.customerId}}</td>
+              <td>{{item.id}}</td>
               <td>{{item.customerName}}</td>
               <td>{{item.customerCode}}</td>
               <td>{{item.customerBirthday}}</td>
@@ -99,12 +99,15 @@
               <td>{{item.customerPhone}}</td>
               <td>{{item.customerEmail}}</td>
               <td>{{item.customerAddress}}</td>
-              <td>{{item.customerType}}</td>
+              <td>{{item.customerType.name}}</td>
+              <td><button type="button" class="btn btn-warning" [routerLink]="['/customer/update',item.id]">Update</button></td>
+              <td><a [routerLink]="['/customer/list/delete',item.id]" style="color: white" class="btn bg-danger" role="button" data-toggle="modal" data-target="#modelId">Delete </a></td>
+              <td><button type="button" class="btn btn-success" (click)="showDetail(item)">View</button></td>
             </tr>
-
             </tbody>
           </table>
-            <app-create-customer (createChild)="createFather($event)"></app-create-customer>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
       </div>
     </div>
   </div>
@@ -117,24 +120,8 @@
     <h5>Hà Nội ngày 02-09-2021</h5>
   </div>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Bạn có muốn xóa <input name="id" value="" id="onName">
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  function onDelete(id,name) {
-    document.getElementById("idOnDelete").value=id
-    document.getElementById("onName").value=name
-  }
-</script>
+
 </body>
 </html>
+
+<router-outlet></router-outlet>

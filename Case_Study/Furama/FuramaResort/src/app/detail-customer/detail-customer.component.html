@@ -1,0 +1,24 @@
+<div class="container-fluid">
+<div class="row">
+<div class="card text-dark bg-light mb-3">
+  <div class="card-header">Customer detail</div>
+  <div class="card-body">
+
+      <div *ngIf="customerDetail;else emptyCustomer">
+        <div>ID:  {{customerDetail.id}}</div>
+        <div>Name:  {{customerDetail.customerName}}</div>
+        <div>Customer Code:  {{customerDetail.customerCode}}</div>
+        <div>Customer Type:  {{customerDetail.customerType.name}}</div>
+        <div>Customer Birthday:  {{customerDetail.customerBirthday}}</div>
+        <div>Customer Card:  {{customerDetail.customerCar}}</div>
+        <div>Customer Phone:  {{customerDetail.customerPhone}}</div>
+        <div>Customer Email:  {{customerDetail.customerEmail}}</div>
+        <div>Customer Address:  {{customerDetail.customerAddress}}</div>
+      </div>
+      <ng-template #emptyCustomer>
+        <p style="color: red">No data</p>
+      </ng-template>
+  </div>
+</div>
+</div>
+</div>

@@ -5,18 +5,6 @@
   <title>Title</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <style>
-    .tex {
-      font-size: 30px;
-      font-weight: bolder;
-      color: whitesmoke;
-    }
-    .errors{
-      font-weight: bolder;
-      color: red;
-      font-size:20px
-    }
-  </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky">
@@ -27,7 +15,7 @@
 </nav>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark "
-     style="position: sticky;top: 0px">
+     style="position: sticky;top: 0px;z-index: 2">
   <div class="container-fluid">
 
 
@@ -65,10 +53,6 @@
         </li>
 
       </ul>
-<!--      <form class="d-flex">-->
-<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
-<!--      </form>-->
     </div>
   </div>
 </nav>
@@ -89,20 +73,13 @@
         <div class="col-12">
           <div class="container-fluid mt-3">
             <h4 class="mb-2">Create Customer</h4>
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="contactForm" (ngSubmit)="createCustomer()">
 
-              <div class="form-group col-sm-6">
-                <label >Id</label>
-                <input type="text" class="form-control" formControlName="customerId">
-                <div *ngIf="contactForm.controls.customerId?.invalid && contactForm.controls.customerId?.dirty">
-                  Id không được trống
-                </div>
-              </div><br>
 
               <div class="form-group col-sm-6">
                 <label>Name</label>
                 <input type="text" class="form-control" formControlName="customerName">
-                <div *ngIf="contactForm.controls.customerName?.invalid && contactForm.controls.customerName?.dirty">
+                <div class="error" *ngIf="contactForm.controls.customerName?.invalid && contactForm.controls.customerName?.dirty">
                  Tên không được trống
                 </div>
               </div><br>
@@ -110,38 +87,42 @@
               <div class="form-group col-sm-6">
                 <label>Code</label>
                 <input type="text" class="form-control" formControlName="customerCode">
-                <div *ngIf="contactForm.controls.customerCode?.invalid && contactForm.controls.customerCode?.dirty">
+                <div class="error" *ngIf="contactForm.controls.customerCode?.invalid && contactForm.controls.customerCode?.dirty">
                   Code không được trống
                 </div>
               </div><br>
 
               <div class="form-group col-sm-6">
                 <label>CustomerType</label>
-                <input type="text" class="form-control" formControlName="customerType">
-                <div *ngIf="contactForm.controls.customerType?.invalid && contactForm.controls.customerType?.dirty">
-                  loại khách hàng không được trống
-                </div>
+                <select class="form-control" formControlName="customerType">
+                  <option *ngFor="let c of customerTypes" [ngValue]="c" [selected]="c.name">
+                    {{c.name}}
+                  </option>
+                </select>
               </div><br>
 
               <div class="form-group col-sm-6">
                 <label>Birthday</label>
-                <input type="text" class="form-control" formControlName="customerBirthday">
-                <div *ngIf="contactForm.controls.customerBirthday?.invalid && contactForm.controls.customerBirthday?.dirty">
-                  Nhập đúng định dạng ngày sinh
+                <input type="date" class="form-control" formControlName="customerBirthday">
+                <div class="error" *ngIf="contactForm.controls.customerBirthday?.hasError('required') && contactForm.controls.customerBirthday?.dirty">
+                  Trường không được trống
+                </div>
+                <div class="error" *ngIf="contactForm.controls.customerBirthday?.hasError('ageInvalid') && contactForm.controls.customerBirthday?.dirty">
+                   Số tuổi phải từ 18
                 </div>
               </div><br>
 
               <div class="form-group col-sm-6">
                 <label>Car</label>
                 <input type="text" class="form-control" formControlName="customerCar">
-                <div *ngIf="contactForm.controls.customerCar?.invalid && contactForm.controls.customerCar?.dirty">
+                <div  class="error" *ngIf="contactForm.controls.customerCar?.invalid && contactForm.controls.customerCar?.dirty">
                   Nhập đúng định dạng CMND
                 </div>
               </div><br>
               <div class="form-group col-sm-6">
                 <label>Phone</label>
                 <input type="text" class="form-control" formControlName="customerPhone">
-                <div *ngIf="contactForm.controls.customerPhone?.invalid && contactForm.controls.customerPhone?.dirty">
+                <div class="error" *ngIf="contactForm.controls.customerPhone?.invalid && contactForm.controls.customerPhone?.dirty">
                   Nhập đúng định dạng số điện thoại
                 </div>
               </div><br>
@@ -149,7 +130,7 @@
               <div class="form-group col-sm-6">
                 <label>Email</label>
                 <input type="text" class="form-control" formControlName="customerEmail">
-                <div *ngIf="contactForm.controls.customerEmail?.invalid && contactForm.controls.customerEmail?.dirty">
+                <div class="error" *ngIf="contactForm.controls.customerEmail?.invalid && contactForm.controls.customerEmail?.dirty">
                   Nhập đúng định dạng Email
                 </div>
               </div><br>
@@ -158,7 +139,7 @@
                 <label>Address</label>
                 <input type="email" class="form-control" formControlName="customerAddress">
 
-                <div *ngIf="contactForm.controls.customerAddress?.invalid && contactForm.controls.customerAddress?.dirty">
+                <div class="error" *ngIf="contactForm.controls.customerAddress?.invalid && contactForm.controls.customerAddress?.dirty">
                   Hãy nhập đúng định dạng Address
                 </div>
               </div><br>
@@ -166,8 +147,8 @@
               <button type="submit" class="btn btn-primary">Sign in</button>
             </form>
           </div>
-          <p>Form value: </p>
-          <pre>{{contactForm.value | json}}</pre>
+<!--          <p>Form value: </p>-->
+<!--          <pre>{{contactForm.value | json}}</pre>-->
 
         </div>
       </div>
