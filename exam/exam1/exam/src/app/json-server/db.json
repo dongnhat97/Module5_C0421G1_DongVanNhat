@@ -1,19 +1,46 @@
 {
-  "posts": [
+  "CarTypes": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "mercedes"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "name": "limousie"
+    },
+    {
+      "id": 3,
+      "name": "Xe ban tai"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "cars": [
+    {
+      "garage": "Xe Khach Nam Cuong",
+      "licensePlate": "123456",
+      "carType": {
+        "id": 2,
+        "name": "limousie"
+      },
+      "addressStart": "Ha Tinh",
+      "addressEnd": "Quang Binh",
+      "phone": "0982212232",
+      "email": "car123@gmail.com",
+      "startDay": "2030-02-23",
+      "id": 1
+    },
+    {
+      "garage": "Trung Hieu",
+      "licensePlate": "12345623",
+      "carType": {
+        "id": 3,
+        "name": "Xe ban tai"
+      },
+      "addressStart": "Ha Tinh",
+      "addressEnd": "Quang Binh",
+      "phone": "0982212232",
+      "email": "car123@gmail.com",
+      "startDay": "2022-02-22",
+      "id": 2
+    }
+  ]
 }
